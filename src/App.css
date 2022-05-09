@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: antiquewhite;
+}
+
+.cardContainer {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  border: solid 2px black;
+  background-size: contain;
+}
+
+.dead {
+  filter: hue-rotate(180deg);
+}
+
+.unknown {
+  filter: grayscale(100%);
+}
+
+.statusDead {
+  color: darkred;
+  font-weight: bolder;
+  font-size: large;
+  background-color: black;
+}
+
+.statusUnknown {
+  color: gray;
+  font-weight: bolder;
+  font-size: large;
+  background-color: black;
+}
