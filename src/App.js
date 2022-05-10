@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Card from "./components/Card/Card";
+import Layout from "./components/Layout/Layout";
 import "./App.css";
 
 function App() {
@@ -16,19 +16,7 @@ function App() {
     getRickAndMortyData();
   }, []);
 
-  return (
-    <div className="App">
-      {characterImage?.length > 0 ? (
-        <div className="container">
-          {characterImage.map(char => (
-            <Card imageLink={char.image} status={char.status} />
-          ))}
-        </div>
-      ) : (
-        <div className="empty">Empty</div>
-      )}
-    </div>
-  );
+  return <Layout props={characterImage} />;
 }
 
 export default App;
