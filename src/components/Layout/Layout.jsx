@@ -1,24 +1,24 @@
 import React from "react";
-import Card from "../Card/Card";
+import styled from "styled-components";
+import CardFunction from "../Card/Card";
+
+const App = styled.div``;
+const Container = styled.div``;
 
 function Layout(props) {
-  return class extends React.Component {
-    render() {
-      return (
-        <div className="App">
-          {props?.length > 0 ? (
-            <div className="container">
-              {props.map(char => (
-                <Card imageLink={char.image} status={char.status} />
-              ))}
-            </div>
-          ) : (
-            <div className="empty">Empty</div>
-          )}
-        </div>
-      );
-    }
-  };
+  return (
+    <App>
+      {props.props?.length > 0 ? (
+        <Container>
+          {props.props.map(character => (
+            <CardFunction imageLink={character.image} status={character.status} />
+          ))}
+        </Container>
+      ) : (
+        <Container>Empty</Container>
+      )}
+    </App>
+  );
 }
 
 export default Layout;

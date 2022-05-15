@@ -1,15 +1,27 @@
 import StatusBar from "../StatusBar/StatusBar";
+import styled from "styled-components";
 
-function Card(props) {
+const CardContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Card = styled.div`
+  width: 200px;
+  height: 200px;
+  border: solid 2px black;
+  filter: ${props => (props.status === "Alive" ? "" : props.status === "Dead" ? "hue-rotate(180deg)" : "grayscale(100%)")};
+  background-image: url("${props => props.imageLink}");
+  background-size: contain;
+`;
+
+function CardFunction(props) {
   return (
-    <div className="cardContainer">
-      <div
-        className={props.status === "Alive" ? "card" : props.status === "Dead" ? "card dead" : "card unknown"}
-        style={{ backgroundImage: `url(${props.imageLink})` }}
-      ></div>
-      <div>{props.status !== "Alive" ? <StatusBar status={props.status} /> : ""}</div>
-    </div>
+    <CardContainer>
+      <Card imageLink={props.imageLink} status={props.status}></Card>
+      {props.status !== "Alive" ? <StatusBar status={props.status} /> : ""}
+    </CardContainer>
   );
 }
 
-export default Card;
+export default CardFunction;
